@@ -1,0 +1,71 @@
+:root {
+  font-family:
+    "Aptos",
+    "SF Pro Text",
+    "Segoe UI",
+    "PingFang SC",
+    "Microsoft YaHei",
+    sans-serif;
+  --surface: #ffffff;
+  --line: #c8d9f5;
+  --ink: #06245c;
+  --muted: #5a719a;
+  --accent: #ffc400;
+  --accent-ink: #06245c;
+  --brand-blue: #0862d8;
+}
+
+body {
+  min-width: 230px;
+  margin: 0;
+  background: linear-gradient(180deg, #eef5ff 0%, #ffffff 100%);
+  color: var(--ink);
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+  gap: 9px;
+  padding: 12px;
+}
+
+header {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  margin-bottom: 2px;
+}
+
+.mark {
+  width: 32px;
+  height: 32px;
+  display: block;
+  border-radius: 8px;
+}
+
+h1 {
+  margin: 0;
+  font-size: 0.98rem;
+}
+
+p {
+  margin: 1px 0 0;
+  color: var(--muted);
+  font-size: 0.76rem;
+}
+
+button {
+  min-height: 34px;
+  color: var(--ink);
+  background: #f6f9ff;
+  border: 1px solid var(--line);
+  border-radius: 7px;
+  cursor: pointer;
+  font: inherit;
+}
+
+.primary {
+  color: var(--accent-ink);
+  background: var(--accent);
+  border-color: var(--accent);
+}

@@ -1,0 +1,101 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Superinput</title>
+    <link rel="stylesheet" href="sidepanel.css" />
+  </head>
+  <body>
+    <main class="shell">
+      <header class="topbar">
+        <img class="mark" src="icons/icon-48.png" alt="" />
+        <div>
+          <p class="eyebrow" id="sourceLabel">Chrome 输入</p>
+          <h1>Superinput</h1>
+        </div>
+        <button id="enabledToggle" class="state-button" type="button">启用</button>
+      </header>
+
+      <section class="panel">
+        <div class="panel-title">
+          <span>当前输入</span>
+          <span id="inputMeta" class="meta">等待</span>
+        </div>
+        <div id="sourceText" class="source-box muted">等待网页输入</div>
+      </section>
+
+      <section class="panel translation-panel">
+        <div class="panel-title">
+          <span>译文</span>
+          <span id="statusText" class="meta">待机</span>
+        </div>
+        <div id="translationText" class="translation-box muted">输入停顿后显示译文</div>
+        <div id="errorText" class="error-text"></div>
+        <div class="actions">
+          <button id="translateNow" type="button">立即翻译</button>
+          <button id="copyTranslation" type="button">复制译文</button>
+          <button id="clearState" type="button">清空</button>
+        </div>
+      </section>
+
+      <section class="settings">
+        <details open>
+          <summary>设置</summary>
+          <form id="settingsForm">
+            <label>
+              <span>Agent URL</span>
+              <input id="endpointUrl" name="endpointUrl" autocomplete="off" />
+            </label>
+            <label>
+              <span>API Key</span>
+              <input id="apiKey" name="apiKey" type="password" autocomplete="off" />
+            </label>
+            <div class="grid">
+              <label>
+                <span>Model</span>
+                <input id="model" name="model" autocomplete="off" />
+              </label>
+              <label>
+                <span>目标语言</span>
+                <select id="targetLanguage" name="targetLanguage">
+                  <option>English</option>
+                  <option>Japanese</option>
+                  <option>Korean</option>
+                  <option>Spanish</option>
+                  <option>French</option>
+                  <option>German</option>
+                  <option>Indonesian</option>
+                  <option>Vietnamese</option>
+                </select>
+              </label>
+            </div>
+            <label>
+              <span>语气</span>
+              <select id="stylePreset" name="stylePreset">
+                <option value="natural">自然</option>
+                <option value="formal">正式</option>
+                <option value="concise">简短</option>
+                <option value="chat">聊天</option>
+              </select>
+            </label>
+            <label>
+              <span>停顿触发</span>
+              <input id="debounceMs" name="debounceMs" type="number" min="150" max="1500" step="50" />
+            </label>
+            <label class="check-row">
+              <input id="autoTranslate" name="autoTranslate" type="checkbox" />
+              <span>自动翻译</span>
+            </label>
+            <label class="check-row">
+              <input id="clearOnEnter" name="clearOnEnter" type="checkbox" />
+              <span>Enter 后清空</span>
+            </label>
+            <button class="primary" type="submit">保存设置</button>
+          </form>
+        </details>
+      </section>
+    </main>
+    <script src="sidepanel.js"></script>
+  </body>
+</html>
