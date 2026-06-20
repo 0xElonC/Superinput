@@ -1,0 +1,373 @@
+:root {
+  color-scheme: light;
+  font-family:
+    "Aptos",
+    "SF Pro Text",
+    "Segoe UI",
+    "PingFang SC",
+    "Microsoft YaHei",
+    sans-serif;
+  background: oklch(0.965 0.009 194);
+  color: oklch(0.235 0.018 210);
+  font-synthesis: none;
+  text-rendering: geometricPrecision;
+  -webkit-font-smoothing: antialiased;
+  --surface: oklch(0.991 0.005 194);
+  --surface-quiet: oklch(0.948 0.011 194);
+  --surface-strong: oklch(0.905 0.017 194);
+  --ink: oklch(0.235 0.018 210);
+  --muted: oklch(0.496 0.023 210);
+  --line: oklch(0.846 0.014 194);
+  --accent: oklch(0.53 0.13 173);
+  --accent-ink: oklch(0.985 0.006 173);
+  --danger: oklch(0.52 0.155 29);
+  --good: oklch(0.48 0.118 153);
+  --shadow: 0 24px 80px color-mix(in oklch, var(--ink), transparent 88%);
+  --radius: 8px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  min-height: 100vh;
+  background:
+    linear-gradient(135deg, oklch(0.986 0.008 185), oklch(0.94 0.012 215)),
+    var(--surface-quiet);
+}
+
+button,
+input,
+select,
+textarea {
+  font: inherit;
+}
+
+button {
+  border: 0;
+}
+
+.app-shell {
+  display: grid;
+  grid-template-columns: minmax(320px, 0.9fr) minmax(320px, 1.1fr);
+  gap: 16px;
+  min-height: 100vh;
+  padding: 18px;
+}
+
+.hud-panel,
+.settings-panel {
+  background: color-mix(in oklch, var(--surface), transparent 2%);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+}
+
+.hud-panel {
+  display: grid;
+  grid-template-rows: auto auto minmax(160px, 1fr) auto auto auto;
+  gap: 14px;
+  padding: 16px;
+}
+
+.settings-panel {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding: 18px;
+}
+
+.hud-header {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: center;
+  gap: 12px;
+}
+
+.brand-mark {
+  display: grid;
+  width: 34px;
+  height: 34px;
+  place-items: center;
+  color: var(--accent-ink);
+  background: var(--accent);
+  border-radius: 7px;
+}
+
+.eyebrow {
+  margin: 0 0 2px;
+  color: var(--muted);
+  font-size: 0.74rem;
+}
+
+h1,
+h2 {
+  margin: 0;
+  letter-spacing: 0;
+}
+
+h1 {
+  font-size: 1.08rem;
+  line-height: 1.15;
+}
+
+h2 {
+  font-size: 1rem;
+}
+
+.status-pill {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  min-width: 86px;
+  min-height: 30px;
+  padding: 0 10px;
+  color: var(--muted);
+  background: var(--surface-quiet);
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  font-size: 0.78rem;
+  white-space: nowrap;
+}
+
+.status-pill span {
+  width: 7px;
+  height: 7px;
+  background: currentColor;
+  border-radius: 50%;
+}
+
+.status-pill.good {
+  color: var(--good);
+}
+
+.status-pill.danger {
+  color: var(--danger);
+}
+
+.language-strip,
+.result-meta {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--muted);
+  font-size: 0.82rem;
+}
+
+.translation-box {
+  display: flex;
+  align-items: flex-start;
+  min-height: 160px;
+  padding: 16px;
+  overflow: auto;
+  background: oklch(0.972 0.008 185);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+}
+
+.translation-box p {
+  margin: 0;
+  color: var(--ink);
+  font-size: clamp(1.12rem, 1.8vw, 1.48rem);
+  line-height: 1.42;
+}
+
+.translation-box .muted {
+  color: var(--muted);
+}
+
+.hud-actions {
+  display: flex;
+  gap: 8px;
+}
+
+.icon-button,
+.secondary-button,
+.primary-button,
+.segmented button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 34px;
+  color: var(--ink);
+  background: var(--surface-quiet);
+  border: 1px solid var(--line);
+  border-radius: 7px;
+  cursor: pointer;
+  transition:
+    transform 140ms ease,
+    background 140ms ease,
+    border-color 140ms ease;
+}
+
+.icon-button {
+  width: 36px;
+}
+
+.icon-button:hover,
+.secondary-button:hover,
+.segmented button:hover {
+  background: var(--surface-strong);
+}
+
+.icon-button:active,
+.secondary-button:active,
+.primary-button:active,
+.segmented button:active {
+  transform: translateY(1px);
+}
+
+button:disabled {
+  cursor: not-allowed;
+  opacity: 0.52;
+}
+
+.field-label {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  color: var(--muted);
+  font-size: 0.8rem;
+  font-weight: 650;
+}
+
+input,
+select,
+textarea {
+  width: 100%;
+  color: var(--ink);
+  background: oklch(0.986 0.004 194);
+  border: 1px solid var(--line);
+  border-radius: 7px;
+  outline: none;
+}
+
+input,
+select {
+  min-height: 38px;
+  padding: 0 11px;
+}
+
+textarea {
+  min-height: 112px;
+  padding: 12px;
+  resize: vertical;
+  line-height: 1.45;
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+  border-color: color-mix(in oklch, var(--accent), var(--line) 24%);
+  box-shadow: 0 0 0 3px color-mix(in oklch, var(--accent), transparent 82%);
+}
+
+.section-title {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 2px;
+}
+
+.two-column {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+
+.two-column > div {
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+}
+
+.segmented {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 6px;
+  padding: 4px;
+  background: var(--surface-quiet);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+}
+
+.segmented button {
+  min-height: 32px;
+  font-size: 0.86rem;
+}
+
+.segmented button.active {
+  color: var(--accent-ink);
+  background: var(--accent);
+  border-color: var(--accent);
+}
+
+.toggle-row,
+.privacy-row {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  color: var(--muted);
+  font-size: 0.86rem;
+}
+
+.toggle-row input {
+  width: 18px;
+  min-height: 18px;
+  accent-color: var(--accent);
+}
+
+.form-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 9px;
+  margin-top: auto;
+}
+
+.secondary-button,
+.primary-button {
+  gap: 7px;
+  min-width: 88px;
+  padding: 0 14px;
+}
+
+.primary-button {
+  color: var(--accent-ink);
+  background: var(--accent);
+  border-color: var(--accent);
+}
+
+.primary-button:hover {
+  background: color-mix(in oklch, var(--accent), black 8%);
+}
+
+.result-meta {
+  justify-content: space-between;
+  min-height: 20px;
+}
+
+.spin {
+  animation: spin 900ms linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@media (max-width: 760px) {
+  .app-shell {
+    grid-template-columns: 1fr;
+    padding: 12px;
+  }
+
+  .two-column {
+    grid-template-columns: 1fr;
+  }
+}
+

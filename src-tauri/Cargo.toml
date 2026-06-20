@@ -1,0 +1,21 @@
+[package]
+name = "superinput"
+version = "0.1.0"
+description = "Real-time desktop input translation HUD"
+authors = ["Superinput"]
+edition = "2021"
+rust-version = "1.77"
+
+[build-dependencies]
+tauri-build = { version = "2.2.0", features = [] }
+
+[dependencies]
+keyring = "3.6.2"
+reqwest = { version = "0.12.12", default-features = false, features = ["json", "rustls-tls"] }
+serde = { version = "1.0.217", features = ["derive"] }
+serde_json = "1.0.138"
+tauri = { version = "2.2.0", features = [] }
+tauri-plugin-clipboard-manager = "2.3.0"
+tokio = { version = "1.43.0", features = ["time"] }
+url = "2.5.4"
+
